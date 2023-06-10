@@ -14,22 +14,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var choice2Button: UIButton!
     
     var story = StoryBrain()
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         updateUI()
-        
-    
+        dropShadow()
     }
     
     @IBAction func choiceMade(_ sender: UIButton) {
-        
         story.nextStory(userChoice: sender.currentTitle!)
-        
         updateUI()
-        
     }
     
     func updateUI() {
@@ -39,4 +34,10 @@ class ViewController: UIViewController {
         
     }
     
+    func dropShadow (){
+        storyLable.layer.shadowColor = UIColor.black.cgColor
+        storyLable.layer.shadowOpacity = 1
+        storyLable.layer.shadowOffset = CGSize(width: 1, height: 1)
+        storyLable.layer.shadowRadius = 5
+    }
 }
